@@ -1,5 +1,14 @@
 <?php
 require_once "common.php";
+require_once "lib/rakuten/autoload.php";
+require_once "token.php";
+
+$client= new RakutenRws_Client();
+$client->setApplicationId($RAKUTEN_APPLICATION_ID);
+$response=$client->execute('IchibaGenreSearch', array('genreId' => 0));
+if(!$response->isOk()) {
+die("API error: ".$response->getMessage());
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -11,19 +20,40 @@ echo("<title> ".common\get_nTry()."回目 - 実験ページ (1)</title>");
 <link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="exp_common.css">
 <link rel="stylesheet" type="text/css" href="exp_page1.css">
-<script src="exp_page1.js">
+<link rel="stylesheet" type="text/css" href="lib/aria-menubutton/menuButtonAction.css">
 </head>
 <body >
+<script src="lib/aria-menubutton/Menubutton.js"></script>
+<script src="lib/aria-menubutton/PopupMenuAction.js"></script>
+<script src="lib/aria-menubutton/MenuItemActionActivedescendant.js"></script>
+<script src="lib/aria-menubutton/PopupMenuActionActivedescendant.js"></script>
+<script src="exp_page1.js"></script>
 <h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
 
 <h2 class="exp_page_nav">ページ1: 商品検索</h2>
 <p>以下の検索フォームから、ほしい商品を探してください。探すものはなんでもかまいません。思いつかない場合は、適当に「お菓子」でいきましょう。</p>
 
 <h2>商品を探す</h2>
-<form action="exp_page2.php">
+<div>
 <label>キーワード: <input type="text" id="search_keyword_input"></label>
-<input type="submit" value="検索開始" onclick="return validateInput();">
-</form>
+<p id="current_jenre" aria-live="polite">ジャンルを選択してください</p>
+
+<div class="menu_button">
+<button id="menubutton1" aria-haspopup="true" aria-controls="menu1">ジャンルを選択</button>
+<ul id="menu1" role="menu" aria-labelledby="menubutton1" aria-activedescendant="mi1">
+<?php
+echo("<li id=\"mi1\" role=\"menuitem\" onclick=\"updateLastAction(event)\">全てのジャンル</li>\r\n");
+$count=2;
+foreach($response['children'] as $childGenre) {
+$genre= $childGenre['child'];
+echo("<li id=\"mi".$count."\" role=\"menuitem\" onclick=\"updateLastAction(event)\">".$genre['genreName']."</li>\r\n");
+$count+=1;
+}
+?>
+</ul>
+</div>
+<button type="button" onclick="return validateInput();">検索開始</button>
+</div>
 <?php
 common\print_hooter();
 ?>
