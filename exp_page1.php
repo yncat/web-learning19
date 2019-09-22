@@ -9,6 +9,15 @@ $response=$client->execute('IchibaGenreSearch', array('genreId' => 0));
 if(!$response->isOk()) {
 die("API error: ".$response->getMessage());
 }
+$genre_names=array("全てのジャンル");
+$genre_ids=array(0);
+foreach($response['children'] as $childGenre) {
+$genre= $childGenre['child'];
+array_push($genre_names,$genre['genreName']);
+array_push($genre_ids,$genre['genreId']);
+}
+$genre_names_json=json_encode($genre_names);
+$genre_ids_json=json_encode($genre_ids);
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -28,6 +37,12 @@ echo("<title> ".common\get_nTry()."回目 - 実験ページ (1)</title>");
 <script src="lib/aria-menubutton/MenuItemActionActivedescendant.js"></script>
 <script src="lib/aria-menubutton/PopupMenuActionActivedescendant.js"></script>
 <script src="exp_page1.js"></script>
+
+<script type="text/javascript">
+var genre_names=JSON.parse('<?php echo $genre_names_json; ?>');
+var genre_ids=JSON.parse('<?php echo $genre_ids_json; ?>');
+</script>
+
 <h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
 
 <h2 class="exp_page_nav">ページ1: 商品検索</h2>
@@ -36,7 +51,7 @@ echo("<title> ".common\get_nTry()."回目 - 実験ページ (1)</title>");
 <h2>商品を探す</h2>
 <div>
 <label>キーワード: <input type="text" id="search_keyword_input"></label>
-<p id="current_jenre" aria-live="polite">ジャンルを選択してください</p>
+<p id="current_genre" aria-live="polite">ジャンルを選択してください</p>
 
 <div class="menu_button">
 <button id="menubutton1" aria-haspopup="true" aria-controls="menu1">ジャンルを選択</button>
