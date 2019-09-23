@@ -26,7 +26,7 @@ echo("<title> ".common\get_nTry()."回目 - 実験ページ (3)</title>");
 ?>
 <link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="exp_common.css">
-<link rel="stylesheet" type="text/css" href="exp_page2.css">
+<link rel="stylesheet" type="text/css" href="exp_page3.css">
 </head>
 <body >
 <h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
@@ -39,7 +39,7 @@ $tax=$target[3] == "1" ? "税抜き" : "税込み";
 $postage=$target[4] == "1" ? "送料別" : "送料込み";
 echo("価格: ".$target[1]."円(".$tax."、".$postage.")</p>\r\n");
 echo("<p>".$target[2]."</p>\r\n");
-echo("<p><button type=\"button\">カートに入れる</button></p>");
+echo("<p><button type=\"button\" onclick=\"location.href='exp_page4.php?name=".$target[0]."&price=".$target[1]."&tax=".$target[3]."&postage=".$target[4]."'\">カートに入れる</button></p>");
 ?>
 <p><a href="#" onclick="history.back(); return false;">検索結果一覧に戻る</a></p>
 <p><a href="exp-page1">別のキーワードで検索</a></p>
