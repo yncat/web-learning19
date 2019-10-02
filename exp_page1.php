@@ -67,9 +67,9 @@ $count+=1;
 ?>
 </ul>
 </div>
-<button type="button" onclick="return validateInput();">検索開始</button>
-</div>
 <?php
+echo("<button type=\"button\" onclick=\"return validateInput('".common\get_second_param()."');\">検索開始</button>\r\n");
+echo("</div>\r\n");
 common\print_hooter();
 ?>
 </body>

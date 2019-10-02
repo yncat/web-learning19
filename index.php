@@ -38,8 +38,8 @@ if(common\get_nTry()==1){
 }
 ?>
 <h2>説明は以上です。下の「次へ進む」ボタンを押して、実験を開始してください。</h2>
-<button type="button" onclick="location.href='exp_page1.php';">次へ進む</button>
 <?php
+echo("<button type=\"button\" onclick=\"location.href='exp_page1.php?second=".common\get_second_param()."';\">次へ進む</button>");
 common\print_hooter();
 ?>
 </body>

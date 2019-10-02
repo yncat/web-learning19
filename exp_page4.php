@@ -47,7 +47,7 @@ echo("<tr> <td>合計</td> <td>\\".$subtotal."</td> </tr>\r\n");
 </table>
 <p>以上のご注文でよろしければ、「注文する」ボタンを押してください。</p>
 <?php
-echo("<button type=\"button\" onclick=\"location.href='exp_page5.php?name=".$_REQUEST["name"]."&subtotal=".$subtotal."&price=".$_REQUEST["price"]."&tax=".$_REQUEST["tax"]."&postage=".$_REQUEST["postage"]."'\">注文する</button>");
+echo("<button type=\"button\" onclick=\"location.href='exp_page5.php?second=".common\get_second_param()."&name=".$_REQUEST["name"]."&subtotal=".$subtotal."&price=".$_REQUEST["price"]."&tax=".$_REQUEST["tax"]."&postage=".$_REQUEST["postage"]."'\">注文する</button>");
 common\print_hooter();
 ?>
 </body>

@@ -39,6 +39,7 @@ echo("<input type=\"hidden\" name=\"price\" value=\"".$_REQUEST["price"]."\">");
 echo("<input type=\"hidden\" name=\"subtotal\" value=\"".$_REQUEST["subtotal"]."\">");
 echo("<input type=\"hidden\" name=\"tax\" value=\"".$_REQUEST["tax"]."\">");
 echo("<input type=\"hidden\" name=\"postage\" value=\"".$_REQUEST["postage"]."\">");
+echo("<input type=\"hidden\" name=\"second\" value=\"".common\get_second_param()."\">");
 ?>
 <p><input type="submit" value="認証"></p>
 </form>

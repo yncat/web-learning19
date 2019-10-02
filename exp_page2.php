@@ -38,7 +38,7 @@ echo("<title> ".common\get_nTry()."回目 - 実験ページ (2)</title>");
 <?php
 echo("<h2>検索結果 ".$found_count."件のうち、最初の何件かを表示しています。</h2>\r\n");
 foreach($items_table as $elem){
-echo("<h3><a href=\"exp_page3.php?code=".$elem[1]."\">".$elem[0]."</a></h3>\r\n");
+echo("<h3><a href=\"exp_page3.php?second=".common\get_second_param()."&code=".$elem[1]."\">".$elem[0]."</a></h3>\r\n");
 echo("<p>価格: ".$elem[2]."円</p>\r\n");
 }
 ?>

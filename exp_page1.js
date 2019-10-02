@@ -1,4 +1,4 @@
-function validateInput(){
+function validateInput(second){
 if(document.getElementById("search_keyword_input").value==""){
 alert("検索キーワードを入力してください。");
 return false;
@@ -12,7 +12,7 @@ if(id==-1){
 alert("指定されたジャンルが見つかりませんでした。");
 return false;
 }
-location.href="exp_page2.php?keyword="+document.getElementById("search_keyword_input").value+"&genre="+id;
+location.href="exp_page2.php?second="+second+"&keyword="+document.getElementById("search_keyword_input").value+"&genre="+id;
 }
 
 function findGenreId(name){
