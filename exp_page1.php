@@ -2,7 +2,7 @@
 require_once "common.php";
 require_once "lib/rakuten/autoload.php";
 require_once "token.php";
-
+common\run_timekeeper_command("start");
 $client = new RakutenRws_Client();
 $client->setApplicationId($RAKUTEN_APPLICATION_ID);
 $response = $client->execute('IchibaGenreSearch', array('genreId' => 0));

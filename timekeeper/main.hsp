@@ -1,3 +1,5 @@
+#packopt name "timekeeper"
+#packopt hide 1
 #include "aquesTalk.as"
 #include "interprocessing.as"
 #include "timer.as"
@@ -5,24 +7,56 @@ WND_TITLE="time_keeper"
 TIMER_MINUTES=20
 running=interprocessing_init("TIMEKEEPER",WND_TITLE)
 if running:{
-dialog "running"
-ret=interprocessing_sendMessage("report-elapsed")
+ret=interprocessing_sendMessage(dir_cmdline)
 end
 }
 interprocessing_setMessageCallback *clbk
 title WND_TITLE
-timer_start TIMER_MINUTES*1000
-aquesTalk_speak "<NUMK VAL="+TIMER_MINUTES+" COUNTER=ふん>の/た'いまーを+かいし'/しまし'た"
+*reset
+active=0
 repeat
 await 50
+if active==1: if timer_getEnded():{
+mmload "alarm.wav",1
+mmplay 1
+wait 300
+aquestalk_speak "たい'む'あ'っぷです。て'すとを/しゅーりょー/して/くださ'い。"
+break
+}
+if active==2:break
 loop
+goto*reset
 *clbk
 content=interprocessing_getMessage(lparam)
 switch content
+case "start":
+if active==0:{
+timer_start TIMER_MINUTES*60000
+aquesTalk_speak "<NUMK VAL="+TIMER_MINUTES+" COUNTER=ふん>の/た'いまーを+かいし'/しまし'た"
+active=1
+}
+swbreak
 case "report-elapsed":
-r=10
-//int(timer_getRemaining()/1000/60)
-aquestalk_speak "のこり+じ'かんわ、あ'と/<NUMK VAL="+r+" COUNTER=ふん>です。"
+m=int(timer_getElapsed()/60000)
+s=int((timer_getElapsed()\60000)/1000)
+aquestalk_speak "けいか+じ'かんわ、/<NUMK VAL="+m+" COUNTER=ふん>、<NUMK VAL="+s+" COUNTER=びょー>です。"
+swbreak
+case "finish":
+m=int(timer_getElapsed()/60000)
+s=int((timer_getElapsed()\60000)/1000)
+aquestalk_speak "て'すとを+しゅーりょーしま_ス。しょよ'ーじ'かんわ、<NUMK VAL="+m+" COUNTER=ふん>、<NUMK VAL="+s+" COUNTER=びょー>でした。"
+active=2
+swbreak
+case "giveup":
+m=int(timer_getElapsed()/60000)
+s=int((timer_getElapsed()\60000)/1000)
+aquestalk_speak "ぎぶ'あ'ぷ/しま'した。しょよ'ーじ'かんわ、<NUMK VAL="+m+" COUNTER=ふん>、<NUMK VAL="+s+" COUNTER=びょー>でした。"
+active=2
+swbreak
+case "exit":
+aquestalk_speak "しゅうりょー"
+wait 100
+end
 swbreak
 swend
 return

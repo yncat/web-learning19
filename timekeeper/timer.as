@@ -7,7 +7,6 @@
 #deffunc timer_start int _end_ms
 started=timeGetTime()
 end_ms=_end_ms
-started=1
 return
 
 #defcfunc timer_getElapsed

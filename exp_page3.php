@@ -16,6 +16,7 @@ $found_count = $response['count'];
 foreach ($response as $item) {
     $target = array($item['itemName'], $item['itemPrice'], $item['itemCaption'], $item['taxFlag'], $item['postageFlag']);
 }
+common\run_timekeeper_command("report-elapsed");
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">

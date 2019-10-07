@@ -18,6 +18,7 @@ foreach ($response as $item) {
     $a = array($item['itemName'], $item['itemCode'], $item['itemPrice']);
     array_push($items_table, $a);
 }
+common\run_timekeeper_command("report-elapsed");
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">

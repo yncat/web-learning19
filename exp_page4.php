@@ -3,6 +3,7 @@ if (!isset($_REQUEST["name"]) || !isset($_REQUEST["price"]) || !isset($_REQUEST[
     die("このページを直接開くことはできません。");
 }
 require_once "common.php";
+common\run_timekeeper_command("report-elapsed");
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
