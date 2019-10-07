@@ -13,7 +13,7 @@ echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (1)</title>");
 <body >
 <h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
 
-<h2 class="exp_page_nav">ページ1: 商品検索</h2>
+<h2 class="exp_page_nav">ギブアップの確認</h2>
 <p>ギブアップしてよろしいですか?</p>
 
 <p><a href="index.php?giveup">はい、ギブアップする</a></p>

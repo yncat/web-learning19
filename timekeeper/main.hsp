@@ -48,7 +48,7 @@ swbreak
 case "giveup":
 m=int(timer_getElapsed()/60000)
 s=int((timer_getElapsed()\60000)/1000)
-aquestalk_speak "ぎぶ'あ'ぷ/しま'した。しょよ'ーじ'かんわ、<NUMK VAL="+m+" COUNTER=ふん>、<NUMK VAL="+s+" COUNTER=びょー>でした。"
+aquestalk_speak "ぎぶ'あ'っぷ/しま'した。しょよ'ーじ'かんわ、<NUMK VAL="+m+" COUNTER=ふん>、<NUMK VAL="+s+" COUNTER=びょー>でした。"
 active=2
 swbreak
 case "exit":
