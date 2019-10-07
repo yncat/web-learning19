@@ -37,7 +37,7 @@ if ($n == "1") {
 } else {
     echo ("<p>担当者に、実験終了を伝えてください。実験へのご協力、誠にありがとうございました。お疲れ様でした!</p>");
 }
-common\print_hooter();
+common\print_hooter(false);
 ?>
 </body>
 </html>

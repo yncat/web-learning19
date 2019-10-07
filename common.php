@@ -3,13 +3,10 @@
 date_default_timezone_set('Asia/Tokyo');
 
 function run_timekeeper_command($cmd){
-$descriptorspec = array(
-0 => array("pipe", "r"),
-1 => array("pipe", "w"),
-2 => array("pipe", "w")
-);
 $cwd=dirname(__FILE__);
-proc_open("timekeeper\\timekeeper.exe ".$cmd,$descriptorspec,$pipes,$cwd,null,array('bypass_shell'=>true));
+$f=fopen($cwd."\\timekeeper\\__interprocessing__","w");
+fwrite($f,$cmd);
+fclose($f);
 }
 
 function get_nTry(){
@@ -26,8 +23,8 @@ if($second!="true") $second="false";
 return $second;
 }
 
-function print_hooter(){
-if(get_nTry()==1){
+function print_hooter($showgiveup=true){
+if($showgiveup && get_nTry()==1){
 echo("<a href=\"giveup.php\">ギブアップする</a>");
 }
 echo("<p class=\"copyright\">Copyright (C) 2019 Yukio Nozawa</p>");

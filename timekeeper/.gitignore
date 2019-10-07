@@ -2,3 +2,4 @@ start.ax
 packfile
 hsptmp
 obj
+__interprocessing__

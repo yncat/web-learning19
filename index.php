@@ -1,5 +1,9 @@
 <?php
 require_once "common.php";
+if(isset($_REQUEST["giveup"])){
+common\run_timekeeper_command("giveup");
+header("Location:index.php?second=true");
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -40,7 +44,7 @@ if (common\get_nTry() == 1) {
 <h2>説明は以上です。下の「次へ進む」ボタンを押して、実験を開始してください。</h2>
 <?php
 echo ("<button type=\"button\" onclick=\"location.href='exp_page1.php?second=" . common\get_second_param() . "';\">次へ進む</button>");
-common\print_hooter();
+common\print_hooter(false);
 ?>
 </body>
 </html>

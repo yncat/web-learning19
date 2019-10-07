@@ -6,16 +6,14 @@
 WND_TITLE="time_keeper"
 TIMER_MINUTES=20
 running=interprocessing_init("TIMEKEEPER",WND_TITLE)
-if running:{
-ret=interprocessing_sendMessage(dir_cmdline)
-end
-}
-interprocessing_setMessageCallback *clbk
+if running:end
 title WND_TITLE
 *reset
 active=0
 repeat
-await 50
+wait 100
+lastMessage=interProcessing_getLastMessage()
+if lastMessage!="": gosub*clbk
 if active==1: if timer_getEnded():{
 mmload "alarm.wav",1
 mmplay 1
@@ -27,7 +25,7 @@ if active==2:break
 loop
 goto*reset
 *clbk
-content=interprocessing_getMessage(lparam)
+content=lastMessage
 switch content
 case "start":
 if active==0:{

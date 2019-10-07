@@ -16,6 +16,11 @@
 #define WM_COPYDATA 0x004A
 
 	#defcfunc interprocessing_init str _appName, str _windowTitle
+exist "__interprocessing__"
+if strsize==-1:{
+sdim b,64
+bsave "__interprocessing__",b,0
+}
 appName=_appName
 windowTitle=_windowTitle
 	if (hMutex == 0) {
@@ -28,18 +33,6 @@ windowTitle=_windowTitle
 	}
 	return alreadyRunningStatus
 
-#defcfunc interProcessing_sendMessage str msg
-s=findWindowEx(0,0,0,windowTitle)
-if s=0:return 0
-	send_content=msg
-	dim cds,3
-	cds(0)=0
-	cds(1)=strlen(send_content)
-	cds(2)=varptr(send_content)
-	sendmsg s, WM_COPYDATA, hwnd, varptr(cds)
-return 1
-
-
 #deffunc CleanupAppRunChecker onexit
 	if (hMutex != 0) {
 		CloseHandle hMutex
@@ -47,14 +40,15 @@ return 1
 	}
 	return
 
-#defcfunc interprocessing_getMessage int ptr
-	dupptr recieved,ptr,12
-	size=lpeek(recieved,4)
-	contentPtr=lpeek(recieved,8)
-	dupptr recieved_data,contentPtr,size
-	sdim final_data,size+1	//—ÌˆæŠm•Û
-	memcpy final_data,recieved_data,size
-return final_data
+#defcfunc interprocessing_getLastMessage
+exist "__interprocessing__"
+sdim b,strsize+1
+bload "__interprocessing__",b
+msg=b
+if strlen(b)==0: return ""
+sdim b,64
+bsave "__interprocessing__",b,0
+return msg
 
 #global
 #endif
