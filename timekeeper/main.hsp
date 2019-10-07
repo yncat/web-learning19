@@ -1,0 +1,13 @@
+#include "interprocessing.as"
+WND_TITLE="time_keeper"
+running=interprocessing_init("TIMEKEEPER",WND_TITLE)
+if running:{
+ret=interprocessing_sendMessage("run")
+end
+}
+interprocessing_setMessageCallback *clbk
+title WND_TITLE
+stop
+*clbk
+content=interprocessing_getMessage(lparam)
+return
