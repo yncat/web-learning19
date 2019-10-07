@@ -1,13 +1,28 @@
+#include "aquesTalk.as"
 #include "interprocessing.as"
+#include "timer.as"
 WND_TITLE="time_keeper"
+TIMER_MINUTES=20
 running=interprocessing_init("TIMEKEEPER",WND_TITLE)
 if running:{
-ret=interprocessing_sendMessage("run")
+dialog "running"
+ret=interprocessing_sendMessage("report-elapsed")
 end
 }
 interprocessing_setMessageCallback *clbk
 title WND_TITLE
-stop
+timer_start TIMER_MINUTES*1000
+aquesTalk_speak "<NUMK VAL="+TIMER_MINUTES+" COUNTER=Ç”ÇÒ>ÇÃ/ÇΩ'Ç¢Ç‹Å[Ç+Ç©Ç¢Çµ'/ÇµÇ‹Çµ'ÇΩ"
+repeat
+await 50
+loop
 *clbk
 content=interprocessing_getMessage(lparam)
+switch content
+case "report-elapsed":
+r=10
+//int(timer_getRemaining()/1000/60)
+aquestalk_speak "ÇÃÇ±ÇË+Ç∂'Ç©ÇÒÇÌÅAÇ†'Ç∆/<NUMK VAL="+r+" COUNTER=Ç”ÇÒ>Ç≈Ç∑ÅB"
+swbreak
+swend
 return

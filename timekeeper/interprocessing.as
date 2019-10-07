@@ -1,4 +1,6 @@
+#ifndef __INTERPROCESSING__
 //タイムキーパーのプロセス間通信
+#define __INTERPROCESSING__
 #define interprocessing_setMessageCallback(%1) oncmd gosub%1, 0x004A
 #module interprocessing
 #uselib "kernel32"
@@ -55,3 +57,4 @@ return 1
 return final_data
 
 #global
+#endif
