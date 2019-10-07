@@ -6,7 +6,7 @@ require_once "common.php";
 <head>
 <meta charset="UTF-8">
 <?php
-echo("<title> ".common\get_nTry()."回目 - 実験ページ </title>");
+echo ("<title> " . common\get_nTry() . "回目 - 実験ページ </title>");
 ?>
 <link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="index.css">
@@ -23,14 +23,14 @@ echo("<title> ".common\get_nTry()."回目 - 実験ページ </title>");
 
 <h2>今回のルール</h2>
 <?php
-if(common\get_nTry()==1){
-?>
+if (common\get_nTry() == 1) {
+    ?>
 <p>今から行う実験は1回目です。1回目の実験では、ページ上部の説明以外、操作ガイドはつきません。</p>
 <p>1回目の実験では、途中で操作が分からなくなって、もうどうしようもないと思ったら、いつでもギブアップすることができます。ギブアップしたい場合は、実験担当者に「ギブアップ」と伝えてください。<br>その時点で、直ちに1回目を終了します。</p>
 <p>なお、ギブアップは、あくまでも「操作が分からなくてこれ以上進めない」というときに宣言してください。また、時間の関係で、20分経っても作業が終わらなかった場合には、<br>その時点でギブアップとさせていただきます。</p>
 <?php
-}else{
-?>
+} else {
+    ?>
 <p>今から行う実験は2回目です。2回目の実験では、ページ上部の説明のほかに、画面読み上げソフトによる操作ガイドを利用できます。</p>
 <p>途中で操作が分からないと思ったら、f1キーを押してください。どのような操作をすべきかを案内してくれます。なお、f1キーにはシールが貼ってあります。</p>
 <p>2回目の実験では、ギブアップの宣言はできません。操作に困ったら、f1キーで聞ける説明を使って、自力で何とかしてみてください。20分が経過したら、実験を終了します。</p>
@@ -39,7 +39,7 @@ if(common\get_nTry()==1){
 ?>
 <h2>説明は以上です。下の「次へ進む」ボタンを押して、実験を開始してください。</h2>
 <?php
-echo("<button type=\"button\" onclick=\"location.href='exp_page1.php?second=".common\get_second_param()."';\">次へ進む</button>");
+echo ("<button type=\"button\" onclick=\"location.href='exp_page1.php?second=" . common\get_second_param() . "';\">次へ進む</button>");
 common\print_hooter();
 ?>
 </body>

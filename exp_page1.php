@@ -3,28 +3,28 @@ require_once "common.php";
 require_once "lib/rakuten/autoload.php";
 require_once "token.php";
 
-$client= new RakutenRws_Client();
+$client = new RakutenRws_Client();
 $client->setApplicationId($RAKUTEN_APPLICATION_ID);
-$response=$client->execute('IchibaGenreSearch', array('genreId' => 0));
-if(!$response->isOk()) {
-die("API error: ".$response->getMessage());
+$response = $client->execute('IchibaGenreSearch', array('genreId' => 0));
+if (!$response->isOk()) {
+    die("API error: " . $response->getMessage());
 }
-$genre_names=array("全てのジャンル");
-$genre_ids=array(0);
-foreach($response['children'] as $childGenre) {
-$genre= $childGenre['child'];
-array_push($genre_names,$genre['genreName']);
-array_push($genre_ids,$genre['genreId']);
+$genre_names = array("全てのジャンル");
+$genre_ids = array(0);
+foreach ($response['children'] as $childGenre) {
+    $genre = $childGenre['child'];
+    array_push($genre_names, $genre['genreName']);
+    array_push($genre_ids, $genre['genreId']);
 }
-$genre_names_json=json_encode($genre_names);
-$genre_ids_json=json_encode($genre_ids);
+$genre_names_json = json_encode($genre_names);
+$genre_ids_json = json_encode($genre_ids);
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <?php
-echo("<title> ".common\get_nTry()."回目 - 実験ページ (1)</title>");
+echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (1)</title>");
 ?>
 <link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="exp_common.css">
@@ -57,19 +57,19 @@ var genre_ids=JSON.parse('<?php echo $genre_ids_json; ?>');
 <button id="menubutton1" aria-haspopup="true" aria-controls="menu1">ジャンルを選択</button>
 <ul id="menu1" role="menu" aria-labelledby="menubutton1" aria-activedescendant="mi1">
 <?php
-echo("<li id=\"mi1\" role=\"menuitem\" onclick=\"updateLastAction(event)\">全てのジャンル</li>\r\n");
-$count=2;
-foreach($response['children'] as $childGenre) {
-$genre= $childGenre['child'];
-echo("<li id=\"mi".$count."\" role=\"menuitem\" onclick=\"updateLastAction(event)\">".$genre['genreName']."</li>\r\n");
-$count+=1;
+echo ("<li id=\"mi1\" role=\"menuitem\" onclick=\"updateLastAction(event)\">全てのジャンル</li>\r\n");
+$count = 2;
+foreach ($response['children'] as $childGenre) {
+    $genre = $childGenre['child'];
+    echo ("<li id=\"mi" . $count . "\" role=\"menuitem\" onclick=\"updateLastAction(event)\">" . $genre['genreName'] . "</li>\r\n");
+    $count += 1;
 }
 ?>
 </ul>
 </div>
 <?php
-echo("<button type=\"button\" onclick=\"return validateInput('".common\get_second_param()."');\">検索開始</button>\r\n");
-echo("</div>\r\n");
+echo ("<button type=\"button\" onclick=\"return validateInput('" . common\get_second_param() . "');\">検索開始</button>\r\n");
+echo ("</div>\r\n");
 common\print_hooter();
 ?>
 </body>
