@@ -33,7 +33,7 @@ echo ("今回のお支払金額: " . $_REQUEST["subtotal"] . "円\r\n");
 <h2>音声による認証</h2>
 <form action="exp_page6.php" onsubmit="return submitHook();">
 <p><button type="button" id="play_button" onclick="playCaptcha();">再生</button></p>
-<label>聞こえた数字: <input type="text" maxlength="5" id="captcha_input" name="captcha" required="true"></label>
+<label>聞こえた数字: <input class="captcha_textfield" type="text" maxlength="5" id="captcha_input" name="captcha" required="true"></label>
 <?php
 echo ("<input type=\"hidden\" name=\"name\" value=\"" . $_REQUEST["name"] . "\">");
 echo ("<input type=\"hidden\" name=\"price\" value=\"" . $_REQUEST["price"] . "\">");
