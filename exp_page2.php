@@ -38,9 +38,11 @@ echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (2)</title>");
 <p>検索でヒットした商品を表示しています。気になる商品のリンクをクリックして、詳細ページに移動しましょう。</p>
 <?php
 echo ("<h2>検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
+$i=0;
 foreach ($items_table as $elem) {
     echo ("<h3><a href=\"exp_page3.php?second=" . common\get_second_param() . "&code=" . $elem[1] . "\">" . $elem[0] . "</a></h3>\r\n");
     echo ("<p>価格: " . $elem[2] . "円</p>\r\n");
+    if($i==3) break;//スクショしたいから、あんまり下に伸びても困る
 }
 ?>
 <a href="exp_page2.php">検索画面に戻る</a>
