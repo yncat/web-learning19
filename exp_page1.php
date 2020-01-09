@@ -43,7 +43,7 @@ var genre_names=JSON.parse('<?php echo $genre_names_json; ?>');
 var genre_ids=JSON.parse('<?php echo $genre_ids_json; ?>');
 </script>
 
-<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
+<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
 <h2 class="exp_page_nav">ページ1: 商品検索</h2>
 <p>以下の検索フォームから、ほしい商品を探してください。探すものはなんでもかまいません。思いつかない場合は、適当に「お菓子」でいきましょう。</p>

@@ -17,7 +17,7 @@ echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (4)</title>");
 <link rel="stylesheet" type="text/css" href="exp_page4.css">
 </head>
 <body >
-<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
+<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
 <h2 class="exp_page_nav">ページ4: 注文確認画面</h2>
 <p>商品の価格や消費税、送料、割引などを確認できます。情報を確認したら、「購入する」ボタンを押して、次に進んでください。</p>

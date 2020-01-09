@@ -32,7 +32,7 @@ echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (2)</title>");
 <link rel="stylesheet" type="text/css" href="exp_page2.css">
 </head>
 <body >
-<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の学習フレームワークの開発と評価</h1>
+<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
 <h2 class="exp_page_nav">ページ2: 検索結果一覧</h2>
 <p>検索でヒットした商品を表示しています。気になる商品のリンクをクリックして、詳細ページに移動しましょう。</p>
