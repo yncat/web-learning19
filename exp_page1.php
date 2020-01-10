@@ -44,11 +44,14 @@ var genre_names=JSON.parse('<?php echo $genre_names_json; ?>');
 var genre_ids=JSON.parse('<?php echo $genre_ids_json; ?>');
 </script>
 
-<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
+<h1 class="uk-text-center">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
-<h2 class="exp_page_nav">ページ1: 商品検索</h2>
+<h2>ページ1: 商品検索</h2>
+<div class="uk-section uk-section-xsmall">
 <p>以下の検索フォームから、ほしい商品を探してください。探すものはなんでもかまいません。思いつかない場合は、適当に「お菓子」でいきましょう。</p>
+</div>
 
+<div class="uk-section uk-section-small">
 <h2>商品を探す</h2>
 <div>
 <label>キーワード: <input type="text" id="search_keyword_input"></label>
@@ -69,9 +72,10 @@ foreach ($response['children'] as $childGenre) {
 </ul>
 </div>
 <?php
-echo ("<button type=\"button\" onclick=\"return validateInput('" . common\get_second_param() . "');\">検索開始</button>\r\n");
+echo ("<button type=\"button\" class=\"uk-button uk-button-default\" onclick=\"return validateInput('" . common\get_second_param() . "');\">検索開始</button>\r\n");
 echo ("</div>\r\n");
 common\print_hooter();
 ?>
+</div>
 </body>
 </html>

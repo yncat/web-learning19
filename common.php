@@ -35,7 +35,7 @@ function print_hooter($showgiveup = true)
     if ($showgiveup && get_nTry() == 1) {
         echo ("<p><a href=\"giveup.php\">ギブアップする</a></p>");
     }
-    echo ("<p class=\"copyright\">Copyright (C) 2019 Yukio Nozawa</p>");
+    echo ("<p class=\"uk-section uk-section-small\">Copyright (C) 2019 Yukio Nozawa</p>");
 }
 
 function uikit_loading_code(){
