@@ -25,6 +25,7 @@ $genre_ids_json = json_encode($genre_ids);
 <meta charset="UTF-8">
 <?php
 echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (1)</title>");
+echo(common\uikit_loading_code());
 ?>
 <link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="exp_common.css">

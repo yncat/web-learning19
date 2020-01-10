@@ -11,6 +11,7 @@ common\run_timekeeper_command("finish");
 <meta charset="UTF-8">
 <?php
 echo ("<title> " . common\get_nTry() . "回目 - 実験ページ (5)</title>");
+echo(common\uikit_loading_code());
 ?>
 <link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="exp_common.css">

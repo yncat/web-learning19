@@ -37,3 +37,11 @@ function print_hooter($showgiveup = true)
     }
     echo ("<p class=\"copyright\">Copyright (C) 2019 Yukio Nozawa</p>");
 }
+
+function uikit_loading_code(){
+return '
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="uikit/css/uikit.min.css" />
+<script src="uikit/js/uikit.min.js"></script>
+';
+}
