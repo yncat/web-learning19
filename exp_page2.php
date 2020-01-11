@@ -33,12 +33,16 @@ echo(common\uikit_loading_code());
 <link rel="stylesheet" type="text/css" href="exp_page2.css">
 </head>
 <body >
-<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
+<h1 class="uk-text-center">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
-<h2 class="exp_page_nav">ページ2: 検索結果一覧</h2>
+<h2>ページ2: 検索結果一覧</h2>
+<div class="uk-section uk-section-xsmall">
 <p>検索でヒットした商品を表示しています。気になる商品のリンクをクリックして、詳細ページに移動しましょう。</p>
+</div>
+
+<div class="uk-section uk-section-large">
 <?php
-echo ("<h2>検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
+echo ("<h2 class="uk-text-center">検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
 $i=0;
 foreach ($items_table as $elem) {
     echo ("<h3><a href=\"exp_page3.php?second=" . common\get_second_param() . "&code=" . $elem[1] . "\">" . $elem[0] . "</a></h3>\r\n");
@@ -46,6 +50,7 @@ foreach ($items_table as $elem) {
     if($i==3) break;//スクショしたいから、あんまり下に伸びても困る
 }
 ?>
+</div>
 <a href="exp_page2.php">検索画面に戻る</a>
 <?php
 common\print_hooter();

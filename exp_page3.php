@@ -31,21 +31,27 @@ echo(common\uikit_loading_code());
 <link rel="stylesheet" type="text/css" href="exp_page3.css">
 </head>
 <body >
-<h1 class="exp_title_header">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
+<h1 class="uk-text-center">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
-<h2 class="exp_page_nav">ページ3: 商品の詳細</h2>
-<p>選んだ商品の詳しい情報を表示しています。情報を読んだら、「カートに入れる」ボタンを押して、次に進みましょう。</p>
+<h2>ページ3: 商品の詳細</h2>
+<p class="uk-section uk-section-xsmall">選んだ商品の詳しい情報を表示しています。情報を読んだら、「カートに入れる」ボタンを押して、次に進みましょう。</p>
 <?php
-echo ("<h2>" . $target[0] . " の詳細</h2>\r\n");
+<div class="uk-section uk-section-large">
+echo ("<h3 class="uk-text-center">" . $target[0] . " の詳細</h2>\r\n");
 $tax = $target[3] == "1" ? "税抜き" : "税込み";
 $postage = $target[4] == "1" ? "送料別" : "送料込み";
 echo ("価格: " . $target[1] . "円(" . $tax . "、" . $postage . ")</p>\r\n");
 echo ("<p>" . $target[2] . "</p>\r\n");
 echo ("<p><button type=\"button\" onclick=\"location.href='exp_page4.php?second=" . common\get_second_param() . "&name=" . $target[0] . "&price=" . $target[1] . "&tax=" . $target[3] . "&postage=" . $target[4] . "'\">カートに入れる</button></p>");
 ?>
+</div>
+<div class="uk-section uk-section-small">
 <p><a href="#" onclick="history.back(); return false;">検索結果一覧に戻る</a></p>
 <?php
 echo ("<p><a href=\"exp_page1.php?second=" . common\get_second_param() . "\">別のキーワードで検索</a></p>");
+?>
+</div>
+<?php
 common\print_hooter();
 ?>
 </body>
