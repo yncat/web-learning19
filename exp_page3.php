@@ -35,14 +35,14 @@ echo(common\uikit_loading_code());
 
 <h2>ページ3: 商品の詳細</h2>
 <p class="uk-section uk-section-xsmall">選んだ商品の詳しい情報を表示しています。情報を読んだら、「カートに入れる」ボタンを押して、次に進みましょう。</p>
-<?php
 <div class="uk-section uk-section-large">
-echo ("<h3 class="uk-text-center">" . $target[0] . " の詳細</h2>\r\n");
+<?php
+echo ("<h3 class=\"uk-text-center\">" . $target[0] . " の詳細</h2>\r\n");
 $tax = $target[3] == "1" ? "税抜き" : "税込み";
 $postage = $target[4] == "1" ? "送料別" : "送料込み";
 echo ("価格: " . $target[1] . "円(" . $tax . "、" . $postage . ")</p>\r\n");
 echo ("<p>" . $target[2] . "</p>\r\n");
-echo ("<p><button type=\"button\" onclick=\"location.href='exp_page4.php?second=" . common\get_second_param() . "&name=" . $target[0] . "&price=" . $target[1] . "&tax=" . $target[3] . "&postage=" . $target[4] . "'\">カートに入れる</button></p>");
+echo ("<p><button type=\"button\" class=\"uk-button uk-button-primary\" onclick=\"location.href='exp_page4.php?second=" . common\get_second_param() . "&name=" . $target[0] . "&price=" . $target[1] . "&tax=" . $target[3] . "&postage=" . $target[4] . "'\">カートに入れる</button></p>");
 ?>
 </div>
 <div class="uk-section uk-section-small">

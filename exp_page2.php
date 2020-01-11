@@ -42,7 +42,7 @@ echo(common\uikit_loading_code());
 
 <div class="uk-section uk-section-large">
 <?php
-echo ("<h2 class="uk-text-center">検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
+echo ("<h2 class=\"uk-text-center\">検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
 $i=0;
 foreach ($items_table as $elem) {
     echo ("<h3><a href=\"exp_page3.php?second=" . common\get_second_param() . "&code=" . $elem[1] . "\">" . $elem[0] . "</a></h3>\r\n");
