@@ -23,8 +23,8 @@ echo(common\uikit_loading_code());
 
 <h2>ページ5: 認証</h2>
 <p class="uk-section uk-section-xsmall">セキュリティ確保のため、手続きを完了する前に、音声による認証を行う必要があります。「再生」ボタンを押し、聞こえてくる5桁の数字を、下のボックスに入力してください。<br>入力が完了したら、「確認」ボタンを押してください。</p>
-<div class="uk-section uk-section-small">
-<h2 class="uk-text-center">商品情報</h2>
+<div class="uk-section uk-section-xsmall">
+<h2 class="uk-text">商品情報</h2>
 <?php
 echo ("<p>" . $_REQUEST["name"] . "</p>\r\n");
 $tax = $_REQUEST["tax"] == "1" ? "税抜き" : "税込み";
@@ -33,7 +33,7 @@ echo ("通常価格: " . $_REQUEST["price"] . "円(" . $tax . "、" . $postage .
 echo ("今回のお支払金額: " . $_REQUEST["subtotal"] . "円\r\n");
 ?>
 </div>
-<div class="uk-section-small">
+<div class="uk-section-xsmall">
 <h2>音声による認証</h2>
 <form action="exp_page6.php" onsubmit="return submitHook();">
 <p><button type="button" class="uk-button uk-button-default" id="play_button" onclick="playCaptcha();">再生</button></p>

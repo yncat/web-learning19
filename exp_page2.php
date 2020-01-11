@@ -36,18 +36,19 @@ echo(common\uikit_loading_code());
 <h1 class="uk-text-center">視覚障害者を対象とした、モダンなウェブ技術の<br>学習フレームワークの開発と評価</h1>
 
 <h2>ページ2: 検索結果一覧</h2>
-<div class="uk-section uk-section-xsmall">
+<div class="uk-section uk-padding-remove-vertical">
 <p>検索でヒットした商品を表示しています。気になる商品のリンクをクリックして、詳細ページに移動しましょう。</p>
 </div>
 
-<div class="uk-section uk-section-large">
+<div class="uk-section uk-section-small">
 <?php
-echo ("<h2 class=\"uk-text-center\">検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
+echo ("<h2 class=\"uk-text\">検索結果 " . $found_count . "件のうち、最初の何件かを表示しています。</h2>\r\n");
 $i=0;
 foreach ($items_table as $elem) {
     echo ("<h3><a href=\"exp_page3.php?second=" . common\get_second_param() . "&code=" . $elem[1] . "\">" . $elem[0] . "</a></h3>\r\n");
     echo ("<p>価格: " . $elem[2] . "円</p>\r\n");
-    echo("<hr class=\"uk-divider-small\">\r\n");
+    echo("<hr >\r\n"); //区切り線
+    $i=$i+1;
     if($i==3) break;//スクショしたいから、あんまり下に伸びても困る
 }
 ?>

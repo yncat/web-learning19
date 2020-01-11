@@ -22,8 +22,8 @@ echo(common\uikit_loading_code());
 
 <h2>ページ4: 注文確認画面</h2>
 <p class="uk-section uk-section-xsmall">商品の価格や消費税、送料、割引などを確認できます。情報を確認したら、「購入する」ボタンを押して、次に進んでください。</p>
-<div class="uk-section uk-section-large">
-<h2 class="uk-text-center">商品情報</h2>
+<div class="uk-section uk-section-xsmall">
+<h2 class="uk-text">商品情報</h2>
 <?php
 echo ("<p>" . $_REQUEST["name"] . "</p>\r\n");
 $tax = $_REQUEST["tax"] == "1" ? "税抜き" : "税込み";
@@ -31,11 +31,12 @@ $postage = $_REQUEST["postage"] == "1" ? "送料別" : "送料込み";
 echo ("価格: " . $_REQUEST["price"] . "円(" . $tax . "、" . $postage . ")</p>\r\n");
 ?>
 </div>
-<div class="uk-section uk-section-large">
-<h2 class="uk-text-center">お支払い情報</h2>
-<div class="uk-section uk-section-small">
-<table class="uk-table" caption="お支払い情報">
-<thead> <tr> <th>項目</th> <th>金額</th> </tr> </thead>
+<div class="uk-section uk-section-xsmall">
+<h2 class="uk-text">お支払い情報</h2>
+<div class="uk-section uk-padding-remove-vertical">
+<table class="uk-table uk-table uk-table-borderd" caption="お支払い情報">
+<table border="1">
+<thead> <tr> <th>　　　　　　　　項目　　　　　　　　</th> <th>　　　　　　　　金額　　　　　　　</th> </tr> </thead>
 <tbody>
 <?php
 $price = (int) $_REQUEST["price"];

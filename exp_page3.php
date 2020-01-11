@@ -35,9 +35,9 @@ echo(common\uikit_loading_code());
 
 <h2>ページ3: 商品の詳細</h2>
 <p class="uk-section uk-section-xsmall">選んだ商品の詳しい情報を表示しています。情報を読んだら、「カートに入れる」ボタンを押して、次に進みましょう。</p>
-<div class="uk-section uk-section-large">
+<div class="uk-section uk-section-small">
 <?php
-echo ("<h3 class=\"uk-text-center\">" . $target[0] . " の詳細</h2>\r\n");
+echo ("<h3 class=\"uk-text\">" . $target[0] . " の詳細</h2>\r\n");
 $tax = $target[3] == "1" ? "税抜き" : "税込み";
 $postage = $target[4] == "1" ? "送料別" : "送料込み";
 echo ("価格: " . $target[1] . "円(" . $tax . "、" . $postage . ")</p>\r\n");
