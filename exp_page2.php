@@ -47,6 +47,7 @@ $i=0;
 foreach ($items_table as $elem) {
     echo ("<h3><a href=\"exp_page3.php?second=" . common\get_second_param() . "&code=" . $elem[1] . "\">" . $elem[0] . "</a></h3>\r\n");
     echo ("<p>価格: " . $elem[2] . "円</p>\r\n");
+    echo("<hr class=\"uk-divider-small\">\r\n");
     if($i==3) break;//スクショしたいから、あんまり下に伸びても困る
 }
 ?>
